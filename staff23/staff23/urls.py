@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf.urls.static import static
+from django.conf import settings
 from tours.views import page_not_found
 
 urlpatterns = [
@@ -25,3 +26,9 @@ urlpatterns = [
 ]
 
 handler404 = page_not_found
+
+admin.site.site_header = 'Панель администрирования'
+admin.site.index_title = 'Эндуро 23'
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

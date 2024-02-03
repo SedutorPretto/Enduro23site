@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Подключаем шрифт Montserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        /* Стили для изменения цвета панели и шрифта */
+        .navbar {
+            background-color: black !important;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: white !important;
+        }
+        /* Стили для плашки внизу страницы */
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Прокат мотоциклов</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">ПЛАН работы</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Сотрудники</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Техника</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Выйти</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    {% block content %}
+    <!-- Здесь будет контент отдельных страниц -->
+    {% endblock %}
+</div>
+
+<!-- Плашка внизу страницы -->
+<div class="footer">
+    Сделано с заботой
+</div>
+
+<!-- Подключаем скрипты -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
