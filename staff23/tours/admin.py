@@ -19,7 +19,9 @@ class VehicleCategoryAdmin(DraggableMPTTAdmin):
 
 @admin.register(Vehicle)
 class VehicleAdmin(admin.ModelAdmin):
+    list_display = ('vehicle_model', 'nickname', 'status')
     prepopulated_fields = {'slug': ('nickname',)}
+    list_display_links = ('nickname',)
 
 
 @admin.register(Price)

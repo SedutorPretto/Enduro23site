@@ -20,7 +20,7 @@ class Vehicle(models.Model):
     vehicle_model = models.ForeignKey('Price', on_delete=models.PROTECT)
     nickname = models.CharField(verbose_name='Идентификатор', max_length=30)
     slug = models.SlugField(verbose_name='Альт.название', max_length=255, blank=True, unique=True)
-    status = models.CharField(choices=STATUS_OPTION, default='ok', verbose_name='Состояние', max_length=15)
+    status = models.CharField(choices=STATUS_OPTION, default='A', verbose_name='Состояние', max_length=15)
     photo = models.ImageField(verbose_name='Фото техники',
                               blank=True,
                               upload_to='images/vehicle/%Y/%m/%d',
