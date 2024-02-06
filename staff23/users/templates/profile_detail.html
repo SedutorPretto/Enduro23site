@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ profile.avatar.url }}" alt="{{ profile.user.username }}" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ profile.user.username }}</h2>
+            <p><strong>Дата рождения:</strong> {{ profile.birth_date }}</p>
+            <p><strong>Подразделение:</strong> {{ profile.position }}</p>
+            <p><strong>Регалии:</strong> {{ profile.bio }}</p>
+            <p><strong>Телефон:</strong> {{ profile.phone }}</p>
+            <a href="{% url 'profile_edit' %}" class="btn btn-primary">Редактировать</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
