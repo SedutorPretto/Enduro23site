@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ vehicle.photo.url }}" alt="{{ vehicle.vehicle_model }}" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ vehicle.vehicle_model }}</h2>
+            <p><strong>Идентификатор:</strong> {{ vehicle.nickname }}</p>
+            <p><strong>URL:</strong> {{ vehicle.slug }}</p>
+            <p><strong>Состояние:</strong> {{ vehicle.status }}</p>
+            <p><strong>Категория:</strong> {{ vehicle.category }}</p>
+            <a href="{% url 'vehicle_update' vehicle.pk %}" class="btn btn-primary">Редактировать</a>
+            <a href="{% url 'vehicle_delete' vehicle.pk %}" class="btn btn-danger">Удалить</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

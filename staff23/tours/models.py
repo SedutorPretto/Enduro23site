@@ -41,8 +41,8 @@ class Vehicle(models.Model):
     def __str__(self):
         return f'{self.vehicle_model} #{self.nickname}, {self.status}'
 
-    def get_absolure_url(self):
-        return reverse('vehicles_detail', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('vehicle_detail', kwargs={'slug': self.slug})
 
 
 class Price(models.Model):
