@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tours.apps.ToursConfig',
     'users.apps.UsersConfig',
+    'schedule.apps.ScheduleConfig',
     'mptt'
 ]
 

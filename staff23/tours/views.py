@@ -81,7 +81,12 @@ def index(request):
 
 
 def cats(request):
-    return render(request, 'base.html')
+    hours_range = range(9, 19)
+    minutes = ['00', '30']
+    st = range(20)
+    names = ['n1', 'n2', 'n3', 'n4', 'not izvestno']
+    return render(request, 'tours/test.html',
+                  {'hours_range': hours_range, 'minutes': minutes, 'st': st, 'names': names})
 
 
 def page_not_found(request, exception):
