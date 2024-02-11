@@ -12,8 +12,8 @@
             <p><strong>URL:</strong> {{ vehicle.slug }}</p>
             <p><strong>Состояние:</strong> {{ vehicle.status }}</p>
             <p><strong>Категория:</strong> {{ vehicle.category }}</p>
-            <a href="{% url 'vehicle_update' vehicle.pk %}" class="btn btn-primary">Редактировать</a>
-            <a href="{% url 'vehicle_delete' vehicle.pk %}" class="btn btn-danger">Удалить</a>
+            <a href="{% url 'vehicle_update' vehicle.slug %}" class="btn btn-primary">Редактировать</a>
+            <a href="{% url 'vehicle_delete' vehicle.slug %}" class="btn btn-danger">Удалить</a>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.http import HttpResponse, HttpResponseNotFound
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 
 from .models import Vehicle, Price
 from .forms import VehicleCreateForm
@@ -73,6 +73,7 @@ class VehicleDeleteView(DeleteView):
         return context
 
 
+@login_required(login_url='login')
 def index(request):
     # t = render_to_string('tours/index.html')
     # return HttpResponse(t)

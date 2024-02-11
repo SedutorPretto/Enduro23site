@@ -18,6 +18,10 @@
         }
         /* Стили для плашки внизу страницы */
         .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
             background-color: black;
             color: white;
             text-align: center;
@@ -41,7 +45,7 @@
                 <a class="nav-link" href="#">Сотрудники</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Техника</a>
+                <a class="nav-link" href="{% url 'vehicles' %}">Техника</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Выйти</a>

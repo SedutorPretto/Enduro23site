@@ -14,7 +14,7 @@
                 <p class="card-text">Площадка в час: {{ vehicle.vehicle_model.ground }}</p>
                 <p class="card-text">Рельеф в час: {{ vehicle.vehicle_model.terrain }}</p>
                 <p class="card-text">Тур в час: {{ vehicle.vehicle_model.tour }}</p>
-
+                <a href="{{ vehicle.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
             </div>
         </div>
     </div>

@@ -1,9 +1,11 @@
 from django.views.generic import DetailView, UpdateView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db import transaction
 from django.urls import reverse_lazy
 
 from .models import Profile
-from .forms import UserUpdateForm, ProfileUpdateForm
+from .forms import UserUpdateForm, ProfileUpdateForm, UserLoginForm
 
 
 class ProfileDetailView(DetailView):
@@ -48,3 +50,19 @@ class ProfileUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('profile_detail', kwargs={'slug': self.object.slug})
+
+
+class UserLoginView(SuccessMessageMixin, LoginView):
+    form_class = UserLoginForm
+    template_name = 'user_login.html'
+    next_page = 'vehicles'
+    success_message = 'Добро пожаловать на работу!'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Авторизация в кабинете'
+        return context
+
+
+class UserLogoutView(LogoutView):
+    next_page = 'home'
