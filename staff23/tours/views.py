@@ -91,3 +91,5 @@ def cats(request):
 
 def page_not_found(request, exception):
     return HttpResponseNotFound('<h1>Заехал не туда, такой страницы нет!</h1>')
+
+
