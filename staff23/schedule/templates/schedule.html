@@ -1,0 +1,46 @@
+<!-- schedule.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="centered">
+    <div style="text-align: center;">
+        <h1>{{ today }} {{ weekday_ru }}</h1>
+    </div>
+
+    <hr>
+
+    <!-- Форма для кнопок "Предыдущий день" и "Следующий день" -->
+    <div style="text-align: center;">
+        <form action="" method="post" style="display: inline-block; margin-bottom: 10px;">
+            {% csrf_token %}
+            <button type="submit" name="prev_date">Предыдущий день</button>
+        </form>
+
+        <form action="" method="post" style="display: inline-block; margin-bottom: 10px;">
+            {% csrf_token %}
+            <button type="submit" name="next_date">Следующий день</button>
+        </form>
+    </div>
+    <!-- Форма для выбора даты -->
+    <form action="" method="post" style="text-align: center; margin-bottom: 10px;">
+        {% csrf_token %}
+        <label for="new-date">Выберите дату:</label>
+        <input type="date" id="new-date" name="new_date" required>
+        <button type="submit">Изменить</button>
+    </form>
+
+    <!-- Список расписаний -->
+    <ul>
+        {% for schedule in schedules %}
+            <li>
+
+                <strong>Время начала поездки:</strong> {{ schedule.time_start }}<br>
+                <strong>Время окончания поездки:</strong> {{ schedule.time_finish }}<br>
+                <strong>Услуга:</strong> {{ schedule.service_name }}<br>
+                <strong>Информация по записи:</strong> {{ schedule.content }}<br>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
